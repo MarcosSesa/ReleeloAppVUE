@@ -1,21 +1,22 @@
 <template>
   <NavBar></NavBar>
-  <dir>hola soy el home</dir>
-  
-
+  <div>signIn</div>
 </template>
 
-
-
 <script>
+//import env from "../environment";
 import NavBar from "../components/NavBar.vue";
 
 export default {
-  name: "Home",
+  name: "signin",
   components: {
     NavBar,
   },
 };
+
+//function signin() {
+ // env.supabase.auth.signIn();
+//}
 </script>
 
 <style scoped>
