@@ -1,6 +1,6 @@
 <template>
   <NavBar></NavBar>
-  <dir>hola soy el home</dir>
+  <div>hola soy el home</div>
   
 
 </template>
@@ -10,11 +10,13 @@
 <script>
 import NavBar from "../components/NavBar.vue";
 
+
 export default {
   name: "Home",
   components: {
     NavBar,
   },
+  
 };
 </script>
 
