@@ -17,7 +17,7 @@
         </li>
         <li class="nav-item active" v-if='!session' >
           <router-link to="SignIn">
-            <a class="nav-link">SignIn </a>
+            <a class="nav-link" >SignIn </a>
           </router-link>
         </li>
         <li class="nav-item active" v-if='!session' >
@@ -25,13 +25,11 @@
             <a class="nav-link">SignUp </a>
           </router-link>
         </li>
-       
-        
-        
-            
-        
-        
-
+        <li class="nav-item active" v-if='session' >
+          <router-link to="Home">
+            <a class="nav-link" v-on:click="signOut">SignOut </a>
+          </router-link>
+        </li>
       </ul>
     </div>
   </nav>
@@ -49,14 +47,20 @@ import env from '../environment.js';
     name: "NavBar",
     data(){
       return{
+        user: '',
         session: {},
-        user: {},
       }
     },
-    async beforeCreate (){
-      await this.session == env.supabase.auth.session();
-      
+    async created (){
+      this.user = await env.supabase.auth.user().email; 
+    
+    },methods:{
+      async signOut(){ 
+        await env.supabase.auth.signOut();  
+        }
+    
     },
+    
     
   };
 </script>
