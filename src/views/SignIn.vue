@@ -1,24 +1,29 @@
 <template>
   <NavBar></NavBar>
-  <h1>signIn</h1>
-  <section style="margin-right: 10%; margin-left: 10%;">
-    <form>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" v-model="Formemail">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<section style="background:rgb(239,239,239)">
+<div class="container" style="padding-top: 200px;padding-bottom: 200px;">
+      <div class="row">
+        <div class="col d-xl-flex justify-content-xl-center" style="background: #ffffff;border-radius: 0px;border-bottom-width: 0px;border-bottom-style: solid;padding-left: 0px;padding-right: 0px;">
+          <img src="..\assets\Login.svg" style="width: 481px;" />
+        </div>
+        <div class="col" style="background: #00bfa6;padding-top: 40px;border-right-width: 1px;border-right-style: solid;border-radius: 0px;">
+            <h1 class="d-xl-flex justify-content-xl-center" style="color: rgb(255,255,255);font-family: 'Amatic SC', serif;">Iniciar sesión</h1>
+            <form style="padding-right: 45px;padding-left: 45px;color: rgb(255,255,255);">
+              <div class="form-group">
+                <input type="email" class="form-control" style="background: rgba(255,255,255,0);margin-top: 40px;border-top-width: 0px;border-right-width: 0px;border-bottom-color: rgb(47,46,65);border-left-width: 0px; border-radius:0px" name="email" placeholder="Introduce tu Email" v-model="Formemail"/>
+                <input type="password" class="form-control" style="margin-top: 40px;background: rgba(255,255,255,0);border-radius: 0px;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(47,46,65);border-left: 0px solid rgb(255,255,255) ;" name="password" placeholder="Introduce tu contraseña" v-model="Formpassword" />
+              </div>
+            </form>
+            <div class="d-xl-flex justify-content-xl-center" style="margin-top: 36px;">
+              <button class="btn btn-primary" type="button" style="font-family: 'Amatic SC', serif;border-bottom-color: rgb(12,85,191);background: rgb(47,46,65);font-size: 22px;" v-on:click="signIn">Iniciar sesion</button>
+            </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" v-model="Formpassword">
-      </div>
-      <button type="submit" class="btn btn-primary" v-on:click="signIn">Submit</button>
-      
-    </form>
-
+</div>
+</section>
     
     
-  </section>
+ 
   
 </template>
 
@@ -55,4 +60,21 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+.form-control{
+  color: white;
+}
 </style>
