@@ -4,7 +4,7 @@
 <div class="container" style="padding-top: 200px;padding-bottom: 200px;">
       <div class="row">
         <div class="col d-xl-flex justify-content-xl-center" style="background: #ffffff;border-radius: 0px;border-bottom-width: 0px;border-bottom-style: solid;padding-left: 0px;padding-right: 0px;">
-          <img src="..\assets\Login.svg" style="width: 481px;" />
+          <img src="..\assets\Login2.svg" style="width: 481px;" />
         </div>
         <div class="col" style="background: #00bfa6;padding-top: 40px;border-right-width: 1px;border-right-style: solid;border-radius: 0px;">
             <h1 class="d-xl-flex justify-content-xl-center" style="color: rgb(255,255,255);font-family: 'Amatic SC', serif;">Iniciar sesión</h1>
@@ -15,13 +15,13 @@
               </div>
             </form>
             <div class="d-xl-flex justify-content-xl-center" style="margin-top: 36px;">
-              <button class="btn btn-primary" type="button" style="font-family: 'Amatic SC', serif;border-bottom-color: rgb(12,85,191);background: rgb(47,46,65);font-size: 22px;" v-on:click="signIn">Iniciar sesion</button>
+              <button class="btn btn-primary" type="button" style="font-family: 'Amatic SC', serif;background: rgb(47,46,65);font-size: 22px;margin-bottom: 20px" v-on:click="signIn">Iniciar sesion</button>
             </div>
         </div>
       </div>
 </div>
 </section>
-    
+rgb(47,46,65)
     
  
   
@@ -30,6 +30,8 @@
 <script>
 import env from "../environment.js";
 import NavBar from "../components/NavBar.vue";
+import Swal from 'sweetalert2';
+
 
 export default {
   name: "signin",
@@ -44,11 +46,27 @@ export default {
   },
   methods:{
     async signIn(){
-      await env.supabase.auth.signIn({
+     
+        const {error} = await env.supabase.auth.signIn({
         email: this.Formemail,
         password: this.Formpassword,
       })
-      window.location.href = 'Home';
+      
+      if(error){
+        Swal.fire({
+        icon: 'warning',
+        iconColor: '#00bfa6',
+        color: 'rgb(47,46,65)' ,
+        title: 'Oops...',
+        text: 'Contraseña o Correo incorrectos',
+        confirmButtonColor: '#00bfa6' ,
+      })
+      }else{
+        this.$router.push('Home');
+      }
+
+      
+    
     }
   }
   

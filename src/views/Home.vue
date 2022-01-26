@@ -1,12 +1,17 @@
 <template>
   <NavBar></NavBar>
-  <div class="container">
-    <div class="d-xl-flex justify-content-xl-center"><img class="img-fluid" src="..\assets\EnConstruccion.svg" style="width: 593.562px;margin-top: 94px;" /></div>
-    <div></div>
-    <h1 class="d-xl-flex justify-content-xl-center" style="padding-top: 18px;font-family: 'Amatic SC', serif;">En construcción</h1>
-</div>
+
+  <section style="background:rgb(239,239,239)">
+    <div class="container">
+      <div class="d-xl-flex justify-content-xl-center">
+        <img class="img-fluid" src="..\assets\EnConstruccion.svg" style="width: 593.562px;padding-top: 94px;" />
+      </div>
+      <h1 class="d-xl-flex justify-content-xl-center" style="padding-top: 18px; margin-bottom: 0px;padding-bottom: 200px;font-family: 'Amatic SC', serif;">En construcción</h1>
+    </div>
+  </section>
   
-<footer style="height: 200px;background: #00bfa6;margin-top: 150px;"></footer>
+  <Footer></Footer>
+
 
 </template>
 
@@ -15,12 +20,14 @@
 <script>
 
 import NavBar from "../components/NavBar.vue";
+import Footer from "../components/Footer.vue";
 
 
 export default {
   name: "Home",
   components: {
     NavBar,
+    Footer,
   },
   
 };
