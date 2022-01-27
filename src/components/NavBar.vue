@@ -14,7 +14,7 @@
             <ul class="navbar-nav" v-if="!session">
 
                 <li class="nav-item">
-                  <router-link to="/signIn"></router-link><a class="nav-link active"  >Iniciar Sesion</a>
+                  <router-link to="/signIn"><a class="nav-link active"  >Iniciar Sesion</a></router-link>
                 </li>
                 <li class="nav-item">
                  <router-link to="/signUp"><a class="nav-link active"  style="background: rgb(0,191,166);border-radius: 25px;border-color: rgb(0,0,0);padding-left: 15px;padding-right: 15px;">Registrarse</a></router-link> 
@@ -33,6 +33,12 @@
         
     </div>
 </nav>
+
+
+
+
+
+
 </template>
 
 <script>
@@ -56,8 +62,6 @@ import env from '../environment.js';
         await env.supabase.auth.signOut();  
         console.log("signtOut()");
         this.$router.go();
-       
-        
       }
 
     
