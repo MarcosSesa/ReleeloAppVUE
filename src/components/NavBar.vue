@@ -11,30 +11,30 @@
 
         <div class="collapse navbar-collapse" id="navcol-1">
 
-            <ul class="navbar-nav" v-if="!session">
-
+            <ul class="navbar-nav d-md-flex d-lg-flex ms-auto align-items-md-center align-items-lg-center" v-if="!session">
                 <li class="nav-item">
                   <router-link to="/signIn"><a class="nav-link active"  >Iniciar Sesion</a></router-link>
                 </li>
                 <li class="nav-item">
                  <router-link to="/signUp"><a class="nav-link active"  style="background: rgb(0,191,166);border-radius: 25px;border-color: rgb(0,0,0);padding-left: 15px;padding-right: 15px;">Registrarse</a></router-link> 
                 </li>
-
             </ul>
+            
 
+            
+            <ul class="navbar-nav d-md-flex d-lg-flex ms-auto align-items-md-center align-items-lg-center"  v-if="session">
+              <li class="nav-item">
+                <a class="nav-link active">
+                <img src="..\assets\User.svg" style="width: 52.2px;padding-right: 15px;" />User</a>
+              </li>
 
-            <div class="navbar-nav ms-auto" v-if='session'>
-              <router-link to="/Home" v-on:click="signOut"><a class="nav-link active">Salir</a></router-link><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-door-open" style="font-size: 28px;color: rgb(0,0,0);">
-              <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"></path>
-              <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"></path>
-          </svg>
-      </div>
+              <li class="nav-item">
+                  <router-link to="/Home" v-on:click="signOut"><a class="nav-link active">Salir</a></router-link>
+              </li>
+            </ul>
         </div>
-        
     </div>
 </nav>
-
-
 
 
 
