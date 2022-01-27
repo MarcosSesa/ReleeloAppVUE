@@ -9,8 +9,10 @@
         <h1 class="d-xl-flex justify-content-xl-center" style="padding-top: 18px; margin-bottom: 0px;padding-bottom: 200px;font-family: 'Amatic SC', serif;">En construcción</h1>
       </div>
     </section>
-  
-    <GlobalBookList/>
+    
+      <GlobalBookList/>
+    
+
     <Footer/>
   </div>
 
