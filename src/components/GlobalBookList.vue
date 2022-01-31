@@ -23,6 +23,9 @@ import env from '../environment.js';
 
     
     name: "GlobalBookList",
+    props:{
+      
+    },
     data(){
       return{
        libros: {},
@@ -34,7 +37,8 @@ import env from '../environment.js';
         .select('*')
         .range(0, 9)
 
-        console.log(this.libros.data);
+        
+       
     }
   
   };

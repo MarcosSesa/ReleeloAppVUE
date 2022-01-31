@@ -22,16 +22,22 @@
             
 
             
-            <ul class="navbar-nav d-md-flex d-lg-flex ms-auto align-items-md-center align-items-lg-center"  v-if="session">
-              <li class="nav-item">
-                <a class="nav-link active">
-                <img src="..\assets\User.svg" style="width: 52.2px;padding-right: 15px;" />User</a>
-              </li>
+            
+                
+              
 
-              <li class="nav-item">
-                  <router-link to="/Home" v-on:click="signOut"><a class="nav-link active">Salir</a></router-link>
+            <ul v-if="session" class="navbar-nav d-md-flex d-lg-flex ms-auto align-items-md-center align-items-lg-center">
+              <img src="..\assets\User.svg" style="width: 52.2px;padding-right: 15px;" />
+              <li class="nav-item dropdown">
+                  <router-link to="/" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Bienvenido {{username}}</router-link>
+                  <div class="dropdown-menu">
+                    <router-link to="/panel" class="dropdown-item">Mi perfil</router-link>
+                    <a class="dropdown-item" v-on:click="signOut">Cerrar sesión</a>
+                  </div>
               </li>
             </ul>
+
+
         </div>
     </div>
 </nav>
@@ -56,8 +62,17 @@ import env from '../environment.js';
     async created (){
       this.user = await env.supabase.auth.user(); 
       this.session = await env.supabase.auth.session();
-      console.log(this.$route.name);
-    },methods:{
+    },
+    computed: {
+    username: function () {
+      if (this.user) {
+        return this.user.email.split("@")[0]
+      } else {
+        return "cargando..."
+      }
+    }
+    },
+    methods:{
       async signOut(){ 
         await env.supabase.auth.signOut();  
         console.log("signtOut()");

@@ -10,8 +10,8 @@
       </div>
     </section>
     
-     
-    <GlobalBookList/>
+      <GlobalBookList/>
+    
 
     <Footer/>
   </div>
