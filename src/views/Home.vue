@@ -28,7 +28,7 @@ import GlobalBookList from "../components/GlobalBookList.vue";
 
 
 export default {
-  name: "Home",
+  name: "home",
   components: {
     NavBar,
     Footer,

@@ -13,10 +13,10 @@
 
             <ul class="navbar-nav d-md-flex d-lg-flex ms-auto align-items-md-center align-items-lg-center" v-if="!session">
                 <li class="nav-item">
-                  <router-link to="/signIn"><a class="nav-link active"  >Iniciar Sesion</a></router-link>
+                  <router-link to="/signIn" style="text-decoration: none;"><a class="nav-link active"  >Iniciar Sesion</a></router-link>
                 </li>
                 <li class="nav-item">
-                 <router-link to="/signUp"><a class="nav-link active"  style="background: rgb(0,191,166);border-radius: 25px;border-color: rgb(0,0,0);padding-left: 15px;padding-right: 15px;">Registrarse</a></router-link> 
+                 <router-link to="/signUp" style="text-decoration: none;"><a class="nav-link active" id="register">Registrarse</a></router-link> 
                 </li>
             </ul>
             
@@ -27,11 +27,12 @@
               
 
             <ul v-if="session" class="navbar-nav d-md-flex d-lg-flex ms-auto align-items-md-center align-items-lg-center">
-              <img src="..\assets\User.svg" style="width: 52.2px;padding-right: 15px;" />
+              <img src="..\assets\user2.svg" style="width: 52.2px;padding-right: 15px;" />
               <li class="nav-item dropdown">
                   <router-link to="/" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Bienvenido {{username}}</router-link>
                   <div class="dropdown-menu">
                     <router-link to="/panel" class="dropdown-item">Mi perfil</router-link>
+                    <router-link to="/panel" class="dropdown-item">Mis Libros</router-link>
                     <a class="dropdown-item" v-on:click="signOut">Cerrar sesión</a>
                   </div>
               </li>
@@ -92,5 +93,18 @@ import env from '../environment.js';
 .nav-link{
   font-family: Abel, sans-serif;
   color:rgb(47,46,65) ;
+  text-decoration: none;
 }
+#register{
+  background: rgb(0,191,166);
+  border-radius: 25px;
+  border-color: rgb(0,0,0);
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#register:hover{
+  background-color: rgb(29, 235, 211);
+}
+
+    
 </style>

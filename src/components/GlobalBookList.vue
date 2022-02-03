@@ -6,8 +6,8 @@
         <div class="col-md-3" v-for="libro in libros.data" v-bind:key="libro.titulo">
             <div class="card" style="width: 272px;border-radius: 14px;background: #ffffff;border-color: rgb(154,156,157);box-shadow: 0px 0px 8px 0px;max-width: 272px;max-height: 200;"><img class="card-img-top w-100 d-block" style="height: 199px;border-radius: 14px;margin: 0px;padding: 5px;opacity: 1;filter: blur(0px) brightness(100%) invert(0%);" src="840_560.jpg" />
                 <div class="card-body">
-                    <h4 class="text-start card-title" style="color: rgb(47,46,65);">el libro fantastico</h4>
-                    <p class="text-start card-text" style="color: rgb(47,46,65);">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    <h4 class="text-start card-title" style="color: rgb(47,46,65);">{{libro.titulo}}</h4>
+                    <p class="text-start card-text" style="color: rgb(47,46,65);">{{libro.descripcion}}</p>
                 </div>
             </div>
         </div>
@@ -24,19 +24,40 @@ import env from '../environment.js';
     
     name: "GlobalBookList",
     props:{
-      
+      UserId: String,
+      filter: String,
+
     },
     data(){
       return{
        libros: {},
+
       }
     },
     async created (){
-      this.libros = await env.supabase
+        
+        if (this.UserId != null) {
+          this.libros = await env.supabase
+        .from('Libro')
+        .select('*')
+        .eq('iduser',this.UserId)
+        .range(0, 9)
+        }else if(this.filter != null){
+          this.libros = await env.supabase
+        .from('Libro')
+        .select('*')
+        .like('titulo', "%" + this.filter + "%")
+        .range(0, 9)
+        }else{
+          this.libros = await env.supabase
         .from('Libro')
         .select('*')
         .range(0, 9)
+        }
+        
 
+      
+      
         
        
     }
