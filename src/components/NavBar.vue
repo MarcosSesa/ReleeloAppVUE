@@ -29,10 +29,13 @@
             <ul v-if="session" class="navbar-nav d-md-flex d-lg-flex ms-auto align-items-md-center align-items-lg-center">
               <img src="..\assets\user2.svg" style="width: 52.2px;padding-right: 15px;" />
               <li class="nav-item dropdown">
-                  <router-link to="/" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Bienvenido {{username}}</router-link>
+                  <router-link to="/" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Bienvenido {{getuser}}</router-link>
                   <div class="dropdown-menu">
-                    <router-link to="/panel" class="dropdown-item">Mi perfil</router-link>
-                    <router-link to="/panel" class="dropdown-item">Mis Libros</router-link>
+                    <router-link to="" class="dropdown-item">Mi perfil</router-link>
+                    <a  class="dropdown-item" :href="'/user/' + user.id">Mis libros</a>
+                    
+                    
+                    
                     <a class="dropdown-item" v-on:click="signOut">Cerrar sesión</a>
                   </div>
               </li>
@@ -58,6 +61,7 @@ import env from '../environment.js';
       return{
         user: '',
         session: {},
+        userid: String,
       }
     },
     async created (){
@@ -65,11 +69,11 @@ import env from '../environment.js';
       this.session = await env.supabase.auth.session();
     },
     computed: {
-    username: function () {
+    getuser(){
       if (this.user) {
         return this.user.email.split("@")[0]
       } else {
-        return "cargando..."
+        return ""
       }
     }
     },
@@ -77,7 +81,10 @@ import env from '../environment.js';
       async signOut(){ 
         await env.supabase.auth.signOut();  
         console.log("signtOut()");
-        this.$router.go();
+        this.$router.push('/home');
+      },
+      mounturl(){
+        return ('/user/'+this.user.id);
       }
 
     

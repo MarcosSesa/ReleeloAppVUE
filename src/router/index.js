@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import SignIn from '../views/SignIn.vue'
 import SignUp from '../views/SignUp.vue'
 import SingleBook from '../views/SingleBook.vue'
+import UserBooks from '../views/UserBooks.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/book/:bookid',
     name: 'SingleBook',
     component: SingleBook
+  },
+  {
+    path: '/user/:userid',
+    name: 'UserBooks',
+    component: UserBooks
   },
  
  

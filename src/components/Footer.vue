@@ -1,5 +1,8 @@
 <template>
-  <footer style="height: 200px;background: #00bfa6;"></footer>
+  <div>
+    <footer style="height: 200px;background: #00bfa6;"></footer>
+  </div>
+  
 </template>
 
 <script>

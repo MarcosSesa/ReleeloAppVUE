@@ -36,13 +36,7 @@ import env from '../environment.js';
     },
     async created (){
         
-        if (this.UserId != null) {
-          this.libros = await env.supabase
-        .from('Libro')
-        .select('*')
-        .eq('iduser',this.UserId)
-        .range(0, 9)
-        }else if(this.filter != null){
+        if(this.filter != null){
           this.libros = await env.supabase
         .from('Libro')
         .select('*')
