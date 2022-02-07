@@ -1,5 +1,6 @@
 <template>
-  <NavBar></NavBar>
+
+  <NavBar/>
   <section style="background:rgb(239,239,239)">
     <div class="container" style="padding-top: 200px;padding-bottom: 200px;">
       <div class="row">
@@ -30,7 +31,7 @@
       </div>
     </div>
   </section>
-  rgb(47,46,65)
+  
 
 
 
