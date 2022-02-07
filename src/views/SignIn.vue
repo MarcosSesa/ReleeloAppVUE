@@ -103,6 +103,12 @@
 <style scoped>
   @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
+  input:focus{
+     outline: none;
+  }
+
+  
+
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
