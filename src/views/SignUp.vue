@@ -26,6 +26,7 @@
 <script>
 import env from "../environment";
 import NavBar from "../components/NavBar.vue";
+import Swal from 'sweetalert2';
 
 export default {
   name: "signup",
@@ -39,14 +40,61 @@ export default {
   },
   methods:{
     async signUp(){
-      await env.supabase.auth.signUp({
+      const {error} = await env.supabase.auth.signUp({
         email: this.Formemail,
         password: this.Formpassword,
       })
+
+      if (error) {
+
+
+      let timerInterval
+      Swal.fire({
+      title: 'Ooops algo salio mal',
+      timer: 2000,
+      toast:true,
+      position: 'top-end',
+      showConfirmButton: false,
+      icon: 'error',
+      color: 'rgb(47,46,65)',
+      timerProgressBar: true,
+      didOpen: () => {
+      const b = Swal.getHtmlContainer().querySelector('b')
+      timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+      }, 100)
+      },
+      willClose: () => {
+      clearInterval(timerInterval)
+      }
+      })
+
+      } else {
+        let timerInterval
+      Swal.fire({
+      title: 'Confirma tu correo para terminar de registrarte',
+      timer: 2000,
+      toast:true,
+      position: 'top-end',
+      showConfirmButton: false,
+      icon: 'success',
+      color: 'rgb(47,46,65)',
+      timerProgressBar: true,
+      didOpen: () => {
+      const b = Swal.getHtmlContainer().querySelector('b')
+      timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+      }, 100)
+      },
+      willClose: () => {
+      clearInterval(timerInterval)
+      }
+      })
       this.$router.push('Home');
-    }
-  }
-};
+      }
+      }
+      }
+      };
 
 </script>
 

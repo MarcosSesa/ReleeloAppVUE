@@ -32,11 +32,8 @@
                   <router-link to="/" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Bienvenido {{getuser}}</router-link>
                   <div class="dropdown-menu">
                     <router-link to="" class="dropdown-item">Mi perfil</router-link>
-                    <a  class="dropdown-item" :href="'/user/' + user.id">Mis libros</a>
-                    
-                    
-                    
-                    <a class="dropdown-item" v-on:click="signOut">Cerrar sesión</a>
+                    <router-link to="" class="dropdown-item" v-on:click="gotomybooks" > Mis libros</router-link>
+                    <router-link to="" class="dropdown-item" v-on:click="signOut" >Cerrar Sesion</router-link>
                   </div>
               </li>
             </ul>
@@ -81,10 +78,10 @@ import env from '../environment.js';
       async signOut(){ 
         await env.supabase.auth.signOut();  
         console.log("signtOut()");
-        this.$router.push('/home');
+        this.$router.go('/home');
       },
-      mounturl(){
-        return ('/user/'+this.user.id);
+      gotomybooks(){
+        this.$router.push('/user/' + this.user.id);
       }
 
     
