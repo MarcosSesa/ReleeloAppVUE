@@ -1,18 +1,7 @@
 <template>
   <div>
     <NavBar/>
-    <section style="background:rgb(239,239,239)">
-      <div class="container">
-        <div class="d-xl-flex justify-content-xl-center">
-          <img class="img-fluid" src="..\assets\EnConstruccion.svg" style="width: 593.562px;padding-top: 94px;" />
-        </div>
-        <h1 class="d-xl-flex justify-content-xl-center" style="padding-top: 18px; margin-bottom: 0px;padding-bottom: 200px;font-family: 'Amatic SC', serif;">En construcción</h1>
-      </div>
-    </section>
-    
-     
     <GlobalBookList/>
-
     <Footer/>
   </div>
 

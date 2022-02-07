@@ -1,10 +1,10 @@
 <template>
-  <NavBar></NavBar>
+  <NavBar/>
   <section style="background:rgb(239,239,239)">
     <div class="container" style="padding-top: 200px;padding-bottom: 200px;">
           <div class="row">
             <div class="col d-xl-flex justify-content-xl-center" style="background: #ffffff;border-radius: 0px;border-bottom-width: 0px;border-bottom-style: solid;padding-left: 0px;padding-right: 0px;">
-              <img src="..\assets\Login3.svg" style="width: 481px;" />
+              <img src="..\assets\register.svg" style="width: 481px;" />
             </div>
             <div class="col" style="background: #00bfa6;padding-top: 40px;border-right-width: 1px;border-right-style: solid;border-radius: 0px;">
                 <h1 class="d-xl-flex justify-content-xl-center" style="color: rgb(255,255,255);font-family: 'Amatic SC', serif;">Registrarse</h1>

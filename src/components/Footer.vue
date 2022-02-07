@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer style="height: 200px;background: #00bfa6;"></footer>
+    <footer style="height: 200px;background:white;"></footer>
   </div>
   
 </template>

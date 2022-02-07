@@ -1,5 +1,5 @@
 <template>
- <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height:100px">
+ <nav class="navbar navbar-expand-lg navbar-light " style="height:100px;">
     <div class="container-fluid">
       <router-link to="/home">
         <a class="navbar-brand"  style="font-size: 25px;font-family: Abel, sans-serif;">Releelo</a>
@@ -78,7 +78,8 @@ import env from '../environment.js';
       async signOut(){ 
         await env.supabase.auth.signOut();  
         console.log("signtOut()");
-        this.$router.go('/home');
+        await this.$router.push('/home');
+        await this.$router.go('/home');
       },
       gotomybooks(){
         this.$router.push('/user/' + this.user.id);
@@ -108,6 +109,9 @@ import env from '../environment.js';
 }
 #register:hover{
   background-color: rgb(29, 235, 211);
+}
+nav{
+background-color: white;
 }
 
     
