@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer style="height: 200px;background:white;"></footer>
+    <footer></footer>
   </div>
   
 </template>
@@ -9,9 +9,7 @@
 
   export default {
     name: "footer",
-    data(){
-      
-    },
+   
   
   };
 </script>

@@ -3,6 +3,7 @@
     <NavBar/>
     <GlobalBookList/>
     <Footer/>
+    
   </div>
 
 </template>
