@@ -32,7 +32,7 @@ import env from "../environment.js";
 
 
 export default {
-  name: "SingleBook",
+  name: "EditBook",
   components: {
     NavBar,
     Footer,
@@ -42,24 +42,36 @@ export default {
     return{
      bookid: String,
      libros: {},
+     session:{},
+     idowner:'',
+     user:{},
+
     }
   },
   async created (){
-     this.bookid = await this.$route.params.bookid;
-     console.log(this.bookid);
+     
+     this.session = await env.supabase.auth.session();
+     if(!this.session){
+      this.$router.push("/home");
+      }
 
+    this.bookid = await this.$route.params.bookid;
     const { data: Libro, error} = await env.supabase
     .from('Libro')
     .select("*")
     .eq('idlibro', this.bookid)
 
-    
+
+    this.idowner = Libro[0].iduser;
+    this.user = await env.supabase.auth.user(); 
+    if (this.idowner != this.user.id) {
+      this.$router.push("/home");
+    }
     
     if(error){
       console.log(error);
       this.$router.push("/home");
       }else{
-        console.log(Libro);
         this.libros = Libro;
       }
     

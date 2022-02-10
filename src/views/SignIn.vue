@@ -57,17 +57,12 @@
     },
     methods: {
       async signIn() {
-
         const {error} = await env.supabase.auth.signIn({
           email: this.Formemail,
           password: this.Formpassword,
         })
 
-
-
         if (error) {
-
-
           let timerInterval
           Swal.fire({
             title: 'Correo o contraseña incorrecto',

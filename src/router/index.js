@@ -5,6 +5,7 @@ import SignIn from '../views/SignIn.vue'
 import SignUp from '../views/SignUp.vue'
 import SingleBook from '../views/SingleBook.vue'
 import UserBooks from '../views/UserBooks.vue'
+import EditBook from '../views/EditBook.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/user/:userid',
     name: 'UserBooks',
     component: UserBooks
+  },
+  {
+    path: '/edit/:bookid',
+    name: 'EditBook',
+    component: EditBook
   },
  
  
