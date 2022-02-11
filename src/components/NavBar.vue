@@ -1,8 +1,8 @@
 <template>
- <nav class="navbar navbar-expand-lg navbar-light " style="height:100px;">
+ <nav class="navbar navbar-expand-lg navbar-light " style="height:100px;background-color: #ffffff;">
     <div class="container-fluid">
       <router-link to="/home">
-        <a class="navbar-brand"  style="font-size: 25px;font-family: Abel, sans-serif;">Releelo</a>
+        <a class="navbar-brand"  style="font-size: 25px;font-family: Abel, sans-serif;color: #3f3d56;">Releelo</a>
       </router-link>
 
       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -29,7 +29,7 @@
             <ul v-if="session" class="navbar-nav d-md-flex d-lg-flex ms-auto align-items-md-center align-items-lg-center">
               <img src="..\assets\user2.svg" style="width: 52.2px;padding-right: 15px;" />
               <li class="nav-item dropdown">
-                  <router-link to="/" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Bienvenido {{getuser}}</router-link>
+                  <router-link to="/" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" style="color: #3f3d56;" >Bienvenido {{getuser}}</router-link>
                   <div class="dropdown-menu">
                     <router-link to="" class="dropdown-item">Mi perfil</router-link>
                     <router-link to="" class="dropdown-item" v-on:click="gotomybooks" > Mis libros</router-link>

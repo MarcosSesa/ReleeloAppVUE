@@ -6,6 +6,7 @@ import SignUp from '../views/SignUp.vue'
 import SingleBook from '../views/SingleBook.vue'
 import UserBooks from '../views/UserBooks.vue'
 import EditBook from '../views/EditBook.vue'
+import CreateBook from '../views/CreateBook.vue'
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/edit/:bookid',
     name: 'EditBook',
     component: EditBook
+  },
+  {
+    path: '/create/',
+    name: 'CreateBook',
+    component: CreateBook
   },
  
  

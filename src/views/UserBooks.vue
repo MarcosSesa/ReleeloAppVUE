@@ -12,14 +12,14 @@
         <div class="col-8" style="padding-top: 13px;">
           <h1 style="text-align:left;">{{libro.titulo}}</h1>
           <hr style="margin-top: 5px;" />
-          <p class="text-break" style="max-height: 96px;text-align:left;">{{libro.descripcion}}</p>
+          <p class="text-break" style="max-height: 96px;text-align:left;">{{libro.descripcion.trim().substring(0,350)}} ...</p>
           <div style="padding-top: 5px;padding-bottom: 5px;text-align:left;">
             <button class="btn btn-primary" v-on:click="verlibro(libro.idlibro)" type="button"
-              style="margin-right: 12px;width: 70px;padding: 5px;color: var(--bs-white);background: var(--bs-teal);border-color: var(--bs-white);">Ver
+              style="margin-right: 12px;width: 70px;border-radius: 7px;padding: 5px;background: var(--bs-teal);border: 0px;">Ver
               <i class="fa fa-eye" style="padding-left: 5px;"></i>
             </button>
-            <button class="btn btn-primary" type="button"
-              style="width: 80px;padding: 5px;background: var(--bs-teal);border-color: rgb(255, 255, 255);border-top-color: 255;border-right-color: 255,;border-bottom-color: 255;border-left-color: 255,;">Editar
+            <button class="btn btn-primary" v-on:click="editarlibro(libro.idlibro)" type="button"
+              style="width: 80px; border-radius: 7px;padding: 5px;background: var(--bs-teal);border: 0px;">Editar
               <i class="fa fa-edit" style="padding-left: 5px;"></i>
             </button>
           </div>
@@ -129,6 +129,9 @@ export default {
 },
 verlibro(id){ 
   this.$router.push('/book/' + id)
+},
+editarlibro(id){ 
+  this.$router.push('/edit/' + id)
 },
   
  }
