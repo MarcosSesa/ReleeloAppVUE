@@ -3,7 +3,7 @@
     <NavBar/>
     <div class="container" style="margin-top: 0;margin-bottom: 0px;margin-left: 0;margin-right: 0;padding-top: 59px;padding-bottom: 60px;background:rgb(230,230,230);max-width:100%;">
       <div class="row d-lg-flex d-md-flex d-xxl-flex justify-content-lg-center justify-content-md-center justify-content-xxl-center" style="height: 586px;margin-bottom: 150px;">
-        <div class="col-md-12 text-center" v-for="libro in libros" v-bind:key="libro.titulo" style="background: rgb(255,255,255);border-width: 1px;border-radius: 11px;padding: 9px;max-width: 700px;">
+        <div class="col-md-12 text-center"  style="background: rgb(255,255,255);border-width: 1px;border-radius: 11px;padding: 9px;max-width: 700px;">
             <img style="width: 100%;border-radius: 7px;" src="https://img.freepik.com/psd-gratis/maqueta-portada-libro_125540-572.jpg?size=626&amp;ext=jpg&amp;ga=GA1.2.1358816262.1641772800" />
             <h1 class="text-start" style="font-family: Abel, sans-serif;margin-top: 5px;">{{libro.titulo}}</h1>
             <h1 class="text-start" style="font-size: 15px;font-family: Abel, sans-serif;margin-top: -10px;margin-left: 3px;">{{libro.autor}}</h1>
@@ -41,7 +41,7 @@ export default {
   data(){
     return{
      bookid: String,
-     libros: {},
+     libro: {},
     }
   },
   async created (){
@@ -60,7 +60,7 @@ export default {
       this.$router.push("/home");
       }else{
         console.log(Libro);
-        this.libros = Libro;
+        this.libro = Libro[0];
       }
     
     

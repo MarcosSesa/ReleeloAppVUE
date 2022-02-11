@@ -32,7 +32,14 @@
     </div>
 
     <div v-if="this.libros.lenght == 0">
-      <h1>HOLAAAAAAAAAAAAA</h1>
+    <div class="container" style="margin-top: 75px;">
+    <div class="row d-xxl-flex justify-content-xxl-center">
+        <div class="col-md-12 text-center">
+          <img src="..\assets\vacio.svg" style="width: 480.656px;" />
+          <h1 style="padding-top: 32px;font-size: 39px;font-family: Abel, sans-serif;">Aun no tienes ningún libro en tu biblioteca</h1>
+        </div>
+    </div>
+</div>
     </div>
 
     <Footer />
