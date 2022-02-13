@@ -35,6 +35,10 @@ import env from '../environment.js';
     data(){
       return{
        libros: {},
+       nextlibros:{},
+       from: 0,
+       to: 7,
+
 
       }
     },
@@ -50,15 +54,33 @@ import env from '../environment.js';
         this.libros = await env.supabase
         .from('Libro')
         .select('*')
-        .range(0, 9)
-        }  
+        .range(this.from, this.to)
+        }
+
+          this.getnextbooks();
         
 
     },
-    methods:{
+   methods:{
       verlibro(id){ 
         this.$router.push('/book/' + id)
+      },
+      getnextbooks() {
+        window.onscroll = async function(){
+        let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+        if (bottomOfWindow) {
+          console.log('scrolllll');
+          this.from = this.to +1;
+          this.to + 2;
+          this.nextlibros =  await env.supabase
+            .from('Libro')
+            .select('*')
+            .range(this.from, this.to)
+          console.log(this.nextlibros);
+            
+        }
       }
+    }
     }
   
   };
