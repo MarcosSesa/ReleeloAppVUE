@@ -19,12 +19,7 @@
                  <router-link to="/signUp" style="text-decoration: none;"><a class="nav-link active" id="register">Registrarse</a></router-link> 
                 </li>
             </ul>
-            
 
-            
-            
-                
-              
 
             <ul v-if="session" class="navbar-nav d-md-flex d-lg-flex ms-auto align-items-md-center align-items-lg-center">
               <img src="..\assets\user2.svg" style="width: 52.2px;padding-right: 15px;" />
@@ -106,12 +101,17 @@ import env from '../environment.js';
   border-color: rgb(0,0,0);
   padding-left: 15px;
   padding-right: 15px;
+  border: solid 1px rgb(0,191,166);
+  color: white;
 }
 #register:hover{
-  background-color: rgb(29, 235, 211);
+  background-color: rgb(255, 255, 255);
+  border: solid 1px rgb(0,191,166);
+  color:rgb(0,191,166) ;
 }
 nav{
 background-color: white;
+
 }
 
     
