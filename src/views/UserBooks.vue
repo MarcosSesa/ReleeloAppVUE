@@ -1,9 +1,9 @@
 <template>
-  <div style="background:rgb(230,230,230)">
+  <div style="background:white">
     <NavBar />
     <div class="container" style="margin-top:100px;">
       <div class="row" v-for="libro in libros" v-bind:key="libro.titulo"
-        style="background-color:white;margin-bottom:30px;border-radius:7px;">
+        style="background-color:white;margin-bottom:30px;border-radius:7px;box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);">
         <div class="col d-flex d-xxl-flex justify-content-center justify-content-xxl-center align-items-xxl-center"
           style="padding: 7px;">
           <img src="https://www.gtm-store.com/wp-content/uploads/2021/10/Presentacion-05.jpg"
@@ -13,20 +13,18 @@
           <h1 style="text-align:left;">{{libro.titulo}}</h1>
           <hr style="margin-top: 5px;" />
           <p class="text-break" style="max-height: 96px;text-align:left;">{{libro.descripcion.trim().substring(0,350)}} ...</p>
-          <div style="padding-top: 5px;padding-bottom: 5px;text-align:left;">
-            <button class="btn btn-primary" v-on:click="verlibro(libro.idlibro)" type="button"
-              style="margin-right: 12px;width: 70px;border-radius: 7px;padding: 5px;background: var(--bs-teal);border: 0px;">Ver
+          <div style="padding-top: 5px;padding-bottom: 5px;text-align:left;margin-bottom:20px;">
+            <button class="btn btn-primary" id="boton" v-on:click="verlibro(libro.idlibro)" type="button" style="margin-right:15px;">Ver
               <i class="fa fa-eye" style="padding-left: 5px;"></i>
             </button>
-            <button class="btn btn-primary" v-on:click="editarlibro(libro.idlibro)" type="button"
-              style="width: 80px; border-radius: 7px;padding: 5px;background: var(--bs-teal);border: 0px;">Editar
+            <button class="btn btn-primary" id="boton" v-on:click="editarlibro(libro.idlibro)" type="button">Editar
               <i class="fa fa-edit" style="padding-left: 5px;"></i>
             </button>
           </div>
         </div>
         <div class="col-1 text-end" style="padding: 21px;">
-          <i id="borrar" v-on:click="borrar(libro.idlibro)" class="fa-solid fa-trash-can"
-            style="font-size: 25px;color: var(--bs-red);"></i>
+          <i  id="borrar" v-on:click="borrar(libro.idlibro)" class="fa-solid fa-trash-can"
+            style=""></i>
         </div>
       </div>
     </div>
@@ -143,5 +141,23 @@ editarlibro(id){
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 #borrar:hover {
   cursor: pointer;
+  color: rgb(187, 34, 34);
+}
+#borrar{
+  font-size: 25px;
+  color: rgb(29, 29, 29);
+  padding:7px;
+}
+#boton:hover{
+  background-color: rgb(255, 255, 255);
+  border: solid 1px rgb(0,191,166);
+  color:rgb(0,191,166) ;
+}
+#boton{
+  width: 80px; 
+  border-radius: 7px;
+  padding: 5px;
+  background: #00bfa6;
+  border-color: #00bfa6;
 }
 </style>
