@@ -127,7 +127,7 @@ export default {
       if (error) {
           let timerInterval
           Swal.fire({
-            title: 'Algo salio malº, intentelo de nuevo más tarde',
+            title: 'Algo salio mal, intentelo de nuevo más tarde',
             timer: 2000,
             toast:true,
             position: 'top-end',
