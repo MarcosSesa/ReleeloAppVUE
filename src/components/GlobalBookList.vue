@@ -1,6 +1,6 @@
 <template >
 
-<div style="background:#f5f5f5; padding-bottom:30px;">
+<div style="background:#ffffff; padding-bottom:30px;">
    <div class="container" >
       <div class="row" style="padding-right: 2px;">
         <div  class="col-md-3" v-for="libro in libros.data" v-bind:key="libro.titulo" style="margin-top: 10px;padding:10px;">
@@ -36,8 +36,8 @@ import env from '../environment.js';
       return{
        libros: {},
        nextlibros:{},
-       from: 0,
-       to: 7,
+       page: 0,
+       rpp: 10,
 
 
       }
@@ -49,12 +49,12 @@ import env from '../environment.js';
         .from('Libro')
         .select('*')
         .like('titulo', "%" + this.filter + "%")
-        .range(0, 9)
+        .range(this.page*this.rpp, this.page*this.rpp+this.rpp)
         }else{
         this.libros = await env.supabase
         .from('Libro')
         .select('*')
-        .range(this.from, this.to)
+        .range(this.page*this.rpp, this.page*this.rpp+this.rpp)
         }
 
           this.getnextbooks();
@@ -69,13 +69,11 @@ import env from '../environment.js';
         window.onscroll = async function(){
         let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
         if (bottomOfWindow) {
-          console.log('scrolllll');
-          this.from = this.to +1;
-          this.to + 2;
+          this.page++;
           this.nextlibros =  await env.supabase
             .from('Libro')
             .select('*')
-            .range(this.from, this.to)
+            .range(this.page*this.rpp, this.page*this.rpp+this.rpp)
           console.log(this.nextlibros);
             
         }
