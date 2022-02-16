@@ -9,7 +9,7 @@
           <img src="https://www.gtm-store.com/wp-content/uploads/2021/10/Presentacion-05.jpg"
             style="width: 100%;border-radius: 8px;" />
         </div>
-        <div class="col-8" style="padding-top: 13px;">
+        <div class="col-8" style="padding-top: 30px;">
           <h1 style="text-align:left;">{{libro.titulo}}</h1>
           <hr style="margin-top: 5px;" />
           <p class="text-break" style="max-height: 96px;text-align:left;">{{libro.descripcion.trim().substring(0,350)}} ...</p>
@@ -29,7 +29,11 @@
       </div>
     </div>
 
-    <div v-if="this.libros.lenght == 0">
+  <div style="text-align: center;padding-top: 21px;">
+    <button v-on:click="crearlibro()" style="width:auto;" class="btn btn-primary" id="subirbutt" type="button" ><i class="fa fa-plus" style="padding: 8px;border-width: 2px;border-style: solid;border-radius: 53px;"></i></button>
+  </div>
+    
+    <div v-if="vacio()">
     <div class="container" style="margin-top: 75px;">
     <div class="row d-xxl-flex justify-content-xxl-center">
         <div class="col-md-12 text-center">
@@ -74,6 +78,7 @@ export default {
   },
   async created (){
     this.userid = await this.$route.params.userid;
+    console.log(this.userid);
     this.session = await env.supabase.auth.session();
     if(!this.session){
       this.$router.push("/home");
@@ -85,10 +90,10 @@ export default {
     .eq('iduser',this.userid)
  
    
-    this.idlibroprueba = Libro[0].iduser;
-    if (this.idlibroprueba != this.userid) {
-      this.$router.push("/home");
-    }
+    //this.idlibroprueba = Libro[0].iduser;
+   // if (this.idlibroprueba != this.userid) {
+     // this.$router.push("/home");
+    //}
 
 
     
@@ -103,7 +108,7 @@ export default {
 
  },
  methods:{
-   async borrar(id){ 
+borrar(id){ 
 
   Swal.fire({
   title: 'Estas seguro de que desea borrar este libro?',
@@ -114,9 +119,9 @@ export default {
   iconColor:'#c91e1e',
   cancelButtonColor: '#8f9491',
   confirmButtonText: 'Borrar'
-  }).then((result) => {
+  }).then(async(result) => {
   if (result.isConfirmed) {
-     env.supabase
+     await env.supabase
     .from('Libro')
     .delete()
     .eq('idlibro', id)
@@ -131,6 +136,16 @@ verlibro(id){
 editarlibro(id){ 
   this.$router.push('/edit/' + id)
 },
+vacio(){
+  if (this.libros.length == 0) {
+    return true;
+  }else{
+    return false;
+  }
+},
+crearlibro(){
+  this.$router.push("/create");
+}
   
  }
   
@@ -159,5 +174,19 @@ editarlibro(id){
   padding: 5px;
   background: #00bfa6;
   border-color: #00bfa6;
+}
+
+#subirbutt{
+  background: #00bfa6;
+  border-radius: 26px;
+  width: 139.5px;
+  padding: 4px;
+  border-color: #00bfa6;
+  text-align: left;
+}
+#subirbutt:hover{
+  background-color: rgb(255, 255, 255);
+  border: solid 1px rgb(0,191,166);
+  color:rgb(0,191,166) ;
 }
 </style>

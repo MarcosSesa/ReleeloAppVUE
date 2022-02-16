@@ -69,12 +69,13 @@ import env from '../environment.js';
         window.onscroll = async function(){
         let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
         if (bottomOfWindow) {
-          this.page++;
-          this.nextlibros =  await env.supabase
-            .from('Libro')
-            .select('*')
-            .range(this.page*this.rpp, this.page*this.rpp+this.rpp)
-          console.log(this.nextlibros);
+          console.log("Fin de la pagina");
+          //this.page++;
+          //this.nextlibros =  await env.supabase
+            //.from('Libro')
+            //.select('*')
+           // .range(this.page*this.rpp, this.page*this.rpp+this.rpp)
+         // console.log(this.nextlibros);
             
         }
       }

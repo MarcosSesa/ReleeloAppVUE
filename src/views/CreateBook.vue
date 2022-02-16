@@ -14,10 +14,10 @@
                       <label class="form-label text-start" style="width: 100%;font-family: Abel, sans-serif;font-size: 20px;">Autor:</label>
                       <input id="eliminarfocus" type="text" style="width: 100%;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(85,85,85);border-left-width: 0px;" placeholder="Autor del libro (max 40 caracteres)" maxlength="40" minlength="4" required v-model="formautor" />
                     </div>
-                    <div style="padding-top: 30px;padding-left:10px;padding-right:10px;">
+                    <!-- <div style="padding-top: 30px;padding-left:10px;padding-right:10px;">
                       <label class="form-label text-start" style="width: 100%;font-family: Abel, sans-serif;font-size: 20px;">Categoria:</label>
                       <input id="eliminarfocus" type="text" style="width: 100%;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(85,85,85);border-left-width: 0px;" placeholder="Elige una categoria"  required v-model="formcategoria" />
-                    </div>
+                    </div> -->
                     <div style="padding-top: 50px;padding-left:10px;padding-right:10px;">
                       <label class="form-label text-start" style="width: 100%;font-family: Abel, sans-serif;font-size: 20px;">Descripcion:</label>
                       <textarea id="eliminarfocus" style="width: 100%;min-height: 130px;color: rgb(21,21,21);font-size: 14px;border-radius: 5px;border-color: rgb(38,38,38);" v-model="formdescripcion" ></textarea>
@@ -64,7 +64,7 @@ export default {
      formtitulo:'',
      formautor:'',
      formdescripcion:'',
-     formcategoria:'',
+     //formcategoria:'',
 
     }
   },
@@ -86,7 +86,7 @@ export default {
     { titulo: this.formtitulo, 
       autor: this.formautor ,
       descripcion: this.formdescripcion,
-      idcategoria: this.formcategoria,
+     // idcategoria: this.formcategoria,
       iduser: this.user.id,
     },
     ])
